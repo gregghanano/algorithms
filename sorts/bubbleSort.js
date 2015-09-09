@@ -13,7 +13,7 @@ function bubbleSort(array){
         swap = true;
       }
     }
-  }while(swap);
+  } while(swap);
   return array;
 }
 
