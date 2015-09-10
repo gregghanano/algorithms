@@ -9,7 +9,9 @@
 //need x,y to know what pixel to click
 
 //iterate through pixel coordinates
-//run click function for each pixel coordinate
+//run "click" function for each pixel coordinate
+// "click" is a psuedo function that would fake a click on the pixel. the function
+// would take a coordinate and "click" that pixel and return true if there's an easter egg
 
 function easterEggFinder(){
 	//loop through infinite numbers, but coordinates should add up to current number iteration
