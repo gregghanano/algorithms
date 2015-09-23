@@ -1,35 +1,25 @@
-// find the minimum in an array, swap that minimum to the front, then go to the
-// next index
-// O(n2) time complexity 'quadratic'
-// not-stable but easy to understand
+//Insertion sort
 
-var arr = [5,3,1,7,9,2,10,20,3,2];
-function selectionSort(array){
-  //loop through array, starting at index 0
+var arr = [5,4,1,9,2,10,7];
+function insertionSort(array){
   var temp;
-  for(var i = 0; i < array.length-1; i++){
-    // inner loop to find minimum
-    var min = array[i]; // set min as the first integer in index
-    var minIndex=i;
-
-    for(var j = i; j < array.length; j++){
-      if(array[j] < min){
-        min = array[j];
-        minIndex = j;
+  for(var i = 1; i < array.length; i++){
+    temp = array[i];
+    for(var j = i; j > 0; j--){
+      if(temp < array[j-1]){
+        array[j] = array[j-1];
+        if(j === 1){
+          array[0] = temp;
+        }
+      } else {
+        array[j] = temp;
+        break;
       }
-    }
-    // when minimum is found, swap it with index in outer loop
-    if(minIndex != i){
-      temp = array[i];
-      array[i] = min;
-      array[minIndex] = temp;
     }
   }
   return array;
 }
-console.log(selectionSort(arr));
 
-//tests
 var testArrays = [
   [[5,1,4,3,8,2],[1,2,3,4,5,8]],
   [[1,2,3,4,5], [1,2,3,4,5]],
@@ -51,11 +41,11 @@ function checkArrays(result, answer){
   return true;
 }
 
-function testSelection(){
+function testInsertion(){
   for(var i = 0; i < testArrays.length; i++){
     var arrayInTest = testArrays[i];
     var answer = arrayInTest[1];
-    var result = selectionSort(arrayInTest[0]);
+    var result = insertionSort(arrayInTest[0]);
     if(checkArrays(result, answer)){
       console.log('Test passed! Result was ' + result + ' and we expected ' + answer);
     } else {

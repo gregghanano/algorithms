@@ -19,18 +19,17 @@ function encode(stringNum, iteration){
   var result = '';
   for(var i = 0; i < stringNum.length; i++){
 
-    var counter = 0;
+    var counter = 1;
     var number = stringNum[i];
     //console.log('number = ' + number);
     while(stringNum[i] === stringNum[i+1]){
       counter++;
       i++;
     }
-    counter++;
     //console.log('counter = ' + counter);
     result += counter+number;
   }
   return encode(result, iteration-1);
 }
 
-console.log(encode('554', 2)); // -> 12151114 
+console.log(encode('554', 2)); // -> 12151114

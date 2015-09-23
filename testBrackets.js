@@ -60,6 +60,6 @@ for(var i = 0; i < tests.length; i++){
   if(result === test[1]){
     console.log(test + ' = it passes');
   } else {
-    console.log('Expected checkBalance(' + test[0] + ') to be ' + test[1] + '. But it was ' + result+'.');
+    console.log('Expected checkBalance("' + test[0] + '") to be ' + test[1] + '. But it was ' + result+'.');
   }
 }
